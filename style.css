@@ -1,0 +1,221 @@
+body {
+    font-family: alumini sans;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.image-con {
+    width: 50%;
+    display: flex;
+}
+img{
+    width: 100%; 
+    height: auto; 
+    display: block; 
+    border-radius: 50px;
+}
+main {
+    margin-top: 120px; /* Adjust this value based on the header height */
+}
+header {
+    background-color: white;
+    text-align: center;
+    display: flex;
+    width: 100%;
+    padding: 20px;
+    align-items: center;
+    height: 70px;
+    position:absolute;
+    top: 0;
+    font: bold 14px/1.4 'Open Sans', arial, sans-serif;
+    position: fixed;
+    z-index: 100;
+    /* position: fixed; */
+}
+.logo {
+    max-width: 250px; 
+}
+.nav-list {
+    list-style: none;
+    margin: 30px;
+    padding: 0px;
+    display: flex;
+}
+.nav-list li {
+    margin-right: 30px;
+    padding: 10px;
+}
+a {
+    color:  rgb(89, 13, 130);
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 0.15em;
+    display: inline-block;
+    padding: 15px 20px;
+    position: relative;
+  }
+  a:after {    
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 2px;
+    left: 50%;
+    position: absolute;
+    background-color: #F25D9C;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+  }
+  a:hover:after { 
+    width: 100%; 
+    left: 0; 
+  }
+.text{
+    font: bold 18px/1.4 'Open Sans', arial, sans-serif;
+    margin-top: 70px;
+    text-align: center;
+    color: rgb(89, 13, 130);
+}
+.text1{
+    font: bold 14px/1.4 'Open Sans', arial, sans-serif;
+    text-align: center;
+    color: grey;
+}
+.container {
+    display: flex;
+    column-gap: 70px;
+    padding: 20px;
+    position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+   }
+.box{
+   width: 350px;
+   height: 300px;
+   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+   }
+.box1{
+    width: 350px;
+    height: 300px; 
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.box2{
+    width: 350px;
+    height: 300px; 
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+   }
+.imgbx{
+    width: 100px;
+    height: 100px;
+    margin-left: 110px;
+    
+}
+.imgbx1{
+    width: 100px;
+    height: 100px;
+    margin-left:110px;
+    
+}
+.imgbx2{
+    width: 150px;
+    height: 90px;
+    margin-left:70px;
+
+}
+.imgbx3{
+    width: 200px;
+    height: 90px;
+    margin-left:110px;
+
+}
+.imgbx4{
+    width: 230px;
+    height: 90px;
+    margin-left:1px;
+
+}
+
+.slider {
+        position: relative;
+        width: 90%;
+        max-width: 800px;
+        height: 400px;
+        overflow: hidden;
+        margin-left: 230px;
+        margin-bottom: 10 px;
+    }
+    
+.slide {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: opacity 1s;
+    }
+    
+.slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+.slide.active {
+        opacity: 1;
+    }
+
+.footer{
+        background:white;
+        padding:30px 0px;
+        font-family: 'Play', sans-serif;
+        text-align:center;
+        }
+        
+.footer .row{
+        width:100%;
+        margin:1% 0%;
+        padding:0.6% 0%;
+        color:gray;
+        font-size:0.9em;
+        }
+        
+.footer .row a{
+        text-decoration:none;
+        color: rgb(89, 13, 130);
+        transition:0.5s;
+        }
+        
+.footer .row a:hover{
+        color: rgb(89, 13, 130);
+        }
+        
+.footer .row ul{
+        width:100%;
+        }
+        
+.footer .row ul li{
+        display:inline-block;
+        margin:0px 30px;
+        }
+        
+.footer .row a i{
+        font-size:2em;
+        margin:0% 1%;
+        }
+        
+ @media (max-width:720px){
+        .footer{
+        text-align:left;
+        padding:5%;
+        }
+.footer .row ul li{
+        display:block;
+        margin:10px 0px;
+        text-align:left;
+        }
+.footer .row a i{
+        margin:0% 3%;
+        }
+        }

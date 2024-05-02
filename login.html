@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script>
+        function validateEmail() {
+            var email = document.getElementById("email").value;
+            var atposition = email.indexOf("@");
+            var dotposition = email.lastIndexOf(".");
+            
+            if (atposition < 1 || dotposition < atposition + 2 || dotposition + 2 >= email.length) {
+                alert("Please enter a valid e-mail address");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="imagee">
+            <img src="R:\MEDITALK\Images\loginpage.png" width="500px" height="500px">
+        </div>
+        <div class="login">
+            <h1 style="text-align: center;">LOGIN</h1>
+            <form id="mainform" method="post" onsubmit="return validateEmail()">
+
+                <label for="email"style="margin: 30px;"><b>Enter E-mail</b></label><br>
+                <input type="text" placeholder="Enter E-mail" id="email" name="email" required><br>
+
+                <label for="psw"style="margin: 30px;"><b>Enter Password</b></label><br>
+                <input type="password" placeholder="Enter Password" id="psw" name="psw" required><br>
+
+                <div class="align">
+                    <button type="submit">LOGIN</button>
+                </div>
+            </form>
+            <!-- Admin Login Button -->
+            <button class="admin-login-button" onclick="window.location.href='adminlogin.html'">Admin Login</button>
+
+            <!-- Sign Up Button -->
+            <p style="text-align: center;">If you don't have an account, <a href="signup.html">signup</a></button></p>
+        </div>
+    </div>
+</body>
+<script type="module">
+
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+  import { getDatabase, get, ref, child } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+  import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+  
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyATZmgTK-Gi6WSJxawk9xEzHSt_vMXFscE",
+    authDomain: "meditalk-d98b3.firebaseapp.com",
+    databaseURL: "https://meditalk-d98b3-default-rtdb.firebaseio.com",
+    projectId: "meditalk-d98b3",
+    storageBucket: "meditalk-d98b3.appspot.com",
+    messagingSenderId: "60779397610",
+    appId: "1:60779397610:web:33415c60c266b7864f3293"
+  };
+
+  
+  const app = initializeApp(firebaseConfig);
+  const db = getDatabase();
+  const auth = getAuth(app);
+  const dbref = ref(db);
+
+  let email = document.getElementById('email');
+  let psw = document.getElementById('psw');
+  let mainform = document.getElementById('mainform');
+
+  let SignInUser = evt =>{
+    evt.preventDefault();
+
+    signInWithEmailAndPassword(auth, email.value, psw.value)
+    .then((credential)=>{
+        get(child(dbref, 'UserAuthList/' + credential.user.uid)).then((snapshot)=>{
+          if(snapshot.exists){
+            sessionStorage.setItem("user-creds", JSON.stringify(credential.user));
+            alert("Login Succesfull");
+            window.location.href = 'home.html';
+          }
+        })
+    })
+    .catch((error)=>{
+        alert(error.message);
+        console.log(error.code);
+        console.log(error.message);
+    })
+  }
+mainform.addEventListener('submit', SignInUser);
+
+// Function to redirect to admin login page
+function redirectToAdminLogin() {
+    window.location.href = 'home.html';
+}
+
+// Function to redirect to sign up page
+
+</script>
+</html>

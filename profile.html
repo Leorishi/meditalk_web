@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="ai.css">
+    <title>Doctor Appointment System</title>
+</head> 
+<body>
+     <header>
+        <img src="R:\MEDITALK\Images/logo.jpg" alt="Logo" class="logo" >
+        <div class="nav-container">
+            <ul class="nav-list" id="nav-list-1">
+                <li><a class="nav-link" href="home.html">HOME</a></li>
+                <li><a class="nav-link" href="appointment.html">BOOK APPOINTMNET</a></li>
+                <li><a class="nav-link" href="ai.html">AI DETECTOR</a></li>
+                <li><a class="nav-link" href="contact.html">CONTACT US</a></li>
+                <button onclick="logout()">Logout</button>
+            </ul>
+        </div>
+    </header>
+<body>
+    <h1 style="margin-top: 150px;">Your Appointments</h1>
+    <div id="appointmentsList"></div>
+    
+    <!-- Logout button -->
+    
+
+    <script>
+        // Function to cancel a doctor appointment
+        function cancelAppointment(doctorName, appointmentDate, appointmentTime) {
+            // Retrieve existing appointments from localStorage
+            let appointments = JSON.parse(localStorage.getItem('appointments')) || [];
+
+            // Filter out the appointment to be canceled
+            appointments = appointments.filter(appointment => {
+                return !(appointment.doctor === doctorName && appointment.date === appointmentDate && appointment.time === appointmentTime);
+            });
+
+            // Save the updated appointments array to localStorage
+            localStorage.setItem('appointments', JSON.stringify(appointments));
+
+            // Remove the appointment element from the HTML
+            displayAppointments();
+        }
+
+        // Function to display booked appointments
+        function displayAppointments() {
+            const appointmentsList = document.getElementById('appointmentsList');
+
+            // Retrieve existing appointments from localStorage
+            let appointments = JSON.parse(localStorage.getItem('appointments')) || [];
+
+            if (appointments.length === 0) {
+                appointmentsList.innerHTML = '<p>No appointments booked.</p>';
+            } else {
+                let html = '<ul>';
+                appointments.forEach(appointment => {
+                    html += `<li>`;
+                    html += `Doctor: ${appointment.doctor}, Date: ${appointment.date}, Time: ${appointment.time}`;
+                    html += `<button onclick="cancelAppointment('${appointment.doctor}', '${appointment.date}', '${appointment.time}')">Cancel Appointment</button></li>`;
+                });
+                html += '</ul>';
+                appointmentsList.innerHTML = html;
+            }
+        }
+
+        // Function to logout
+        function logout() {
+            // Clear localStorage and redirect to login page
+            localStorage.removeItem('appointments');
+            window.location.href = 'login.html';
+        }
+
+        // Call the function to display booked appointments when the page loads
+        window.onload = function() {
+            displayAppointments(); // Display booked appointments
+        };
+    </script>
+</body>
+<footer style="margin-top: 300px;">
+    <!--FONT AWESOME-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <!--GOOGLE FONTS-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Play&display=swap" rel="stylesheet"> 
+    </head>
+    <body>
+    <div class="footer">
+    <div class="row">
+    <a href="https://www.fb.com/l/6lp1kJRRR"><i class="fa fa-facebook"></i></a>
+    <a href="https://www.instagram.com/meditalk8"><i class="fa fa-instagram"></i></a>
+
+    </div>
+    
+    <div class="row">
+    <ul>
+    <li><a href="contact.html">Contact us</a></li>
+    <li><a href="services.html">Our Services</a></li>
+    </ul>
+    </div>
+    
+    <div class="row">
+    MEDITALK Copyright © 2024 meditalk - All rights reserved || Designed By: Rishabh 
+    </div>
+    </div>
+    
+    </footer>    
+
+</html>

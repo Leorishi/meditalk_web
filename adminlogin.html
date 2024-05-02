@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <style>
+        /* Style for the show/hide eye icon */
+        .password-toggle {
+            position: absolute;
+            top: 46%;
+            right: 200px;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="imagee">
+            <img src="R:\MEDITALK\Images\loginpage.png" width="500px" height="500px">
+        </div>
+        <div class="login">
+            <h1 style="text-align: center;">LOGIN</h1>
+            <form id="mainform" method="post" onsubmit="return validateCredentials()">
+
+                <label for="username" style="margin: 30px;"><b>Enter Username</b></label><br>
+                <input type="text" placeholder="Enter Username" id="username" name="username" required><br>
+
+                <label for="psw" style="margin: 30px;"><b>Enter Password</b></label><br>
+                <input type="password" placeholder="Enter Password" id="psw" name="psw" required>
+                <span class="password-toggle" onclick="togglePasswordVisibility()">
+                    <img src="R:\MEDITALK\Images/openeye.png" alt="Toggle password visibility" width="20px" height="20px">
+                </span><br>
+
+                <div class="align">
+                    <button type="submit">LOGIN</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function togglePasswordVisibility() {
+            var passwordField = document.getElementById("psw");
+            var icon = document.querySelector(".password-toggle img");
+
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                icon.src = "R:\MEDITALK\Images/closeeye.jpeg"; // Change icon to hide eye icon
+            } else {
+                passwordField.type = "password";
+                icon.src = "R:\MEDITALK\Images/openeye.png"; // Change icon to show eye icon
+            }
+        }
+
+        function validateCredentials() {
+            var enteredUsername = document.getElementById("username").value;
+            var enteredPassword = document.getElementById("psw").value;
+
+            // Fixed credentials
+            var fixedUsername = "rishabh@admin";
+            var fixedPassword = "23456rR@";
+
+            // Check if entered credentials match fixed values
+            if (enteredUsername === fixedUsername && enteredPassword === fixedPassword) {
+                // Redirect to admindashboard.html
+                window.location.href = "admindashboard.html";
+                return false; // Prevent form submission since we're redirecting
+            } else {
+                alert("Invalid username or password");
+                return false; // Prevent form submission
+            }
+        }
+    </script>
+</body>
+</html>

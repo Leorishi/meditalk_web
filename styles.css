@@ -1,0 +1,112 @@
+/* Add a gray background color */
+body {
+    background-size: cover;
+    background-position: center;
+}
+
+/* Define a container for the login form */
+.container{
+        padding: 30px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        width: 90%;
+       }
+
+.login{
+    width: 500px;
+    height: 500px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    background-color: white;
+    
+    }
+.signup{
+        width: 500px;
+        height: 550px;
+        box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+        background-color: white;
+        
+        }
+ .imagee{
+     width: 500px;
+     height: 550px; 
+     border-radius: 50px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12p
+ }
+
+/* Define the form fields */
+input[type=text], input[type=password] {
+ width: 90%;
+ padding: 12px 20px;
+ margin: 15px;
+ display: inline-block;
+ border: 2px solid grey;
+ align-items: center;
+ box-sizing: border-box;
+ border-radius: 50px;
+}
+/* CSS */
+button{
+  background: #5E5DF0;
+  border-radius: 999px;
+  box-shadow: #5E5DF0 0 10px 20px -10px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-family: Inter,Helvetica,"Apple Color Emoji","Segoe UI Emoji",NotoColorEmoji,"Noto Color Emoji","Segoe UI Symbol","Android Emoji",EmojiSymbols,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  outline: 0 solid transparent;
+  padding: 8px 18px;
+  width: fit-content;
+  word-break: break-word;
+  border: 0;
+}
+.align{
+    margin-top: 10px;
+    text-align: center;
+}
+button:hover {
+ opacity: 0.9;
+}
+/* Add CSS for the "Forgot password" link */
+.forgot-password {
+    margin-top: 30px;
+    text-align: center;
+   }
+   
+   .forgot-password a {
+    color: #333;
+    text-decoration: none;
+   }
+   
+   .forgot-password a:hover {
+    text-decoration: underline;
+   }
+   /* Add a gray background color */
+body {
+    background-size: cover;
+    background-position: center;
+}
+
+/* Adjust admin login button */
+.admin-login-button {
+    position: fixed; /* Change position to fixed */
+    top: 490px;
+    right:190px;
+    padding: 10px 20px;
+    background-color:#5E5DF0;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    z-index: 9999; /* Ensure it's above other elements */
+}
+
+.admin-login-button:hover {
+    background-color: #0056b3;
+}

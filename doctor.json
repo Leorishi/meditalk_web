@@ -1,0 +1,75 @@
+{
+    "doctorList": {
+      "doctor1": {
+        "name": "Dr. Rajesh Kumar",
+        "age": 40,
+        "specialty": "Cardiology",
+        "education": "MBBS, MD",
+        "rating": 4.7
+      },
+      "doctor2": {
+        "name": "Dr. Priya Sharma",
+        "age": 35,
+        "specialty": "Obstetrics and Gynecology",
+        "education": "MBBS, MS",
+        "rating": 4.9
+      },
+      "doctor3": {
+        "name": "Dr. Sanjay Patel",
+        "age": 45,
+        "specialty": "Orthopedics",
+        "education": "MBBS, MS",
+        "rating": 4.6
+      },
+      "doctor4": {
+        "name": "Dr. Anjali Singh",
+        "age": 42,
+        "specialty": "Dermatology",
+        "education": "MBBS, MD",
+        "rating": 4.8
+      },
+      "doctor5": {
+        "name": "Dr. Vivek Mishra",
+        "age": 38,
+        "specialty": "Neurology",
+        "education": "MBBS, DM",
+        "rating": 4.7
+      },
+      "doctor6": {
+        "name": "Dr. Nisha Gupta",
+        "age": 36,
+        "specialty": "Pediatrics",
+        "education": "MBBS, MD",
+        "rating": 4.9
+      },
+      "doctor7": {
+        "name": "Dr. Rahul Verma",
+        "age": 41,
+        "specialty": "Ophthalmology",
+        "education": "MBBS, MS",
+        "rating": 4.8
+      },
+      "doctor8": {
+        "name": "Dr. Shalini Tiwari",
+        "age": 39,
+        "specialty": "Psychiatry",
+        "education": "MBBS, MD",
+        "rating": 4.6
+      },
+      "doctor9": {
+        "name": "Dr. Sunil Kumar",
+        "age": 43,
+        "specialty": "Urology",
+        "education": "MBBS, MCh",
+        "rating": 4.7
+      },
+      "doctor10": {
+        "name": "Dr. Pooja Gupta",
+        "age": 37,
+        "specialty": "Internal Medicine",
+        "education": "MBBS, MD",
+        "rating": 4.9
+      }
+    }
+  }
+  

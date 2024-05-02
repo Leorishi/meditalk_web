@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script>
+        function validateEmail() {
+            var email = document.getElementById("email").value;
+            var atposition = email.indexOf("@");
+            var dotposition = email.lastIndexOf(".");
+            
+            if (atposition < 1 || dotposition < atposition + 2 || dotposition + 2 >= email.length) {
+                alert("Please enter a valid e-mail address");
+                return false;
+            }
+            return true;
+        }
+        function validateName() {
+            var name = document.getElementById("name").value;
+            // You can customize the validation for the name as needed.
+            // Here, I'm checking if the name contains only letters.
+            if (!/^[a-zA-Z]+$/.test(name)) {
+                alert("Please enter a valid name (only letters allowed).");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="imagee">
+            <img src="R:\MEDITALK\Images\loginpage.png" width="500px" height="500px">
+        </div>
+        <div class="signup">
+            <h1 style="text-align: center;">Sign Up</h1>
+            <form id="mainform" method="post" onsubmit="return validateEmail() && validateName() && validatePhoneNumber()">
+
+                <label for="name" style="margin: 30px;"><b>Enter name</b></label><br>
+                <input type="text" placeholder="Enter name" id="name" name="name" required><br>
+
+                <label for="email"style="margin: 30px;"><b>Enter E-mail</b></label><br>
+                <input type="text" placeholder="Enter E-mail" id="email" name="email" required><br>
+
+                <label for="number"style="margin: 30px;"><b>Enter Number</b></label><br>
+                <input type="text" placeholder="Enter Number" id="number" name="number" required><br>
+
+                <label for="psw"style="margin: 30px;"><b>Create Password</b></label><br>
+                <input type="password" placeholder="Create Password" id="psw" name="psw" required><br>
+
+                <div class="align">
+                    <button type="submit">SIGNUP</button>
+                </div>
+            </form>
+            <p style="text-align: center;">If you have an account, <a href="login.html">Login</a></p>
+        </div>
+    </div>
+</body>
+<script type="module">
+
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+  import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+  import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+  
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyATZmgTK-Gi6WSJxawk9xEzHSt_vMXFscE",
+    authDomain: "meditalk-d98b3.firebaseapp.com",
+    databaseURL: "https://meditalk-d98b3-default-rtdb.firebaseio.com",
+    projectId: "meditalk-d98b3",
+    storageBucket: "meditalk-d98b3.appspot.com",
+    messagingSenderId: "60779397610",
+    appId: "1:60779397610:web:33415c60c266b7864f3293"
+  };
+
+  
+  const app = initializeApp(firebaseConfig);
+  const db = getDatabase();
+  const auth = getAuth(app);
+
+  let name = document.getElementById('name');
+  let email = document.getElementById('email');
+  let number = document.getElementById('number');
+  let psw = document.getElementById('psw');
+  let mainform = document.getElementById('mainform');
+
+  let RegisterUser = evt =>{
+    evt.preventDefault();
+
+    createUserWithEmailAndPassword(auth, email.value, psw.value)
+    .then((credential)=>{
+        set(ref(db, 'UsersAuthList/' + credential.user.uid),{
+            Name: name.value,
+            Email: email.value,
+            Number: number.value,
+            Password: psw.value
+        }).then(()=>{
+            alert("Registration done");
+            window.location.href= 'home.html';
+        })
+    })
+    .catch((error)=>{
+        alert(error.message);
+        console.log(error.code);
+        console.log(error.message);
+    })
+  }
+mainform.addEventListener('submit', RegisterUser);
+</script>
+</html>
